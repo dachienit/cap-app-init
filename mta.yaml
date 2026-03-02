@@ -25,6 +25,8 @@ modules:
           srv-url: ${default-url}
     requires:
       - name: my_cap_1-auth
+      - name: my_cap_1-destination
+      - name: my_cap_1-connectivity
   - name: my_cap_1
     type: approuter.nodejs
     path: app/router
@@ -54,6 +56,16 @@ modules:
           app-uri: ${default-uri}
 
 resources:
+  - name: my_cap_1-destination
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: destination
+      service-plan: lite
+  - name: my_cap_1-connectivity
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: connectivity
+      service-plan: lite
   - name: my_cap_1-auth
     type: org.cloudfoundry.managed-service
     parameters:

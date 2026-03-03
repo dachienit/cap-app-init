@@ -50,7 +50,8 @@ cds.on('bootstrap', (app) => {
 
     app.post('/api/fetch-bom', async (req, res) => {
         try {
-            const destinationName = req.body.destinationName;
+            //const destinationName = req.body.destinationName;
+            const destinationName = 'T4X_011';
             if (!destinationName) {
                 return res.status(400).json({ error: "Missing destinationName" });
             }
